@@ -29,12 +29,7 @@ rand = "0.7"
 regex = "1"
 serde = "1.0"
 serde_derive = "1.0"
-<<<<<<< HEAD
-futures-timer = "2.0"
-tikv-client = { git = "https://github.com/tikv/client-rust.git" }
-=======
 futures-timer = "3.0"
->>>>>>> upstream/master
 
 [dependencies.prometheus]
 version = "0.8"
