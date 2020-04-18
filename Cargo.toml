@@ -21,7 +21,7 @@ name = "tikv_client"
 derive-new = "0.5"
 failure = "0.1"
 futures = { version = "0.3.1", features = ["compat", "async-await", "thread-pool"] }
-grpcio = { version = "0.5.0-alpha", features = [ "secure", "prost-codec" ], default-features = false }
+grpcio = { version = "0.5.0", features = [ "secure", "prost-codec" ], default-features = false }
 kvproto = { git = "https://github.com/pingcap/kvproto.git", features = [ "prost-codec" ], default-features = false }
 lazy_static = "1"
 log = "0.3.9"
@@ -29,6 +29,7 @@ regex = "1"
 serde = "1.0"
 serde_derive = "1.0"
 futures-timer = "2.0"
+tikv-client = { git = "https://github.com/tikv/client-rust.git" }
 
 [dependencies.prometheus]
 version = "0.4.2"
@@ -44,7 +45,7 @@ proptest = "0.9"
 proptest-derive = "0.1.0"
 fail = { version = "0.3", features = [ "failpoints" ] }
 
-[replace]
-"protobuf:2.8.0" = { git = "https://github.com/nrc/rust-protobuf", rev="4df576feca3b10c01d55b0e7c634bfab30982087" }
-"protobuf-build:0.10.0" = { git = "https://github.com/tikv/protobuf-build", rev="42e52b9311f7fb31bbbe089fef5a24ec0392f9ce" }
-
+[patch.crates-io]
+protobuf = { git = "https://github.com/nrc/rust-protobuf", rev="4df576feca3b10c01d55b0e7c634bfab30982087", version="2.8.0"}
+protobuf-build = { git = "https://github.com/tikv/protobuf-build", rev="42e52b9311f7fb31bbbe089fef5a24ec0392f9ce", version="0.10.0" }
+raft-proto = { git = "https://github.com/tikv/raft-rs", rev = "e624c1d48460940a40d8aa69b5329460d9af87dd", version="0.6.0-alpha", default-features = false}
